@@ -4,4 +4,5 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 
 ## 📂 Category
 
-
+- [HashTable](./HashTable/README.md)
+- [Math](./Math/README.md)
