@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -21,11 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run update-readme script
-        run: node scripts/update-readme.js
-
       - name: Pull remote changes
         run: git pull origin main
+
+      - name: Run update-readme script
+        run: node scripts/update-readme.js
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v4
