@@ -1,6 +1,6 @@
 ## Palindrome Number
 
-Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwise.
+Given an integer x, return true if x is a palindrome, and false otherwise...
 
 [LeetCode - Palindrome Number](https://leetcode.com/problems/palindrome-number/description/?envType=problem-list-v2&envId=array)
 
@@ -8,33 +8,22 @@ Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwis
 
 Easy
 
-## My Thinking
+## Note
 
-- 把數字轉成字串後將其反轉，再比較是否相同
-- 考慮到負數的問題，需要先排除負數
+### 題目理解
 
-## Final Solution
-
-使用迴文數的特性，只反轉一半的數字，然後比較是否相同
-
-- 時間複雜度 Time Complexity：O(log n)
-- 空間複雜度 Space Complexity：O(1)
-
-## Notes & Learnings
-
-- 雖然用字串操作，好寫、好讀懂，但時間和空間複雜度皆為 O(n)
-- 迴文數的特性是，從中間切一半，左邊和右邊會對稱，所以可以只反轉一半的數字，然後比較是否相同
+- 題目要我們判斷一個數字是否是迴文數
+- 迴文數的定義是，從左到右和從右到左讀都是一樣的數字
 - 負數和 10 的倍數都不是迴文數
+- 不能把數字轉換成字串來解
 
-## My Attempts
+### 解法思路
 
-```js
-// 初始版本：字串反轉
-function isPalindrome(x) {
-  if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
-  const reversed = parseInt(
-    Math.abs(x).toString().split("").reverse().join("")
-  );
-  return x === reversed;
-}
-```
+1. 初始想法：把數字反轉，再比較是否相同
+
+2. 優化想法：只反轉一半的數字，然後比較是否相同
+
+### 時間與空間複雜度
+
+- 時間複雜度：O(log n)，因為只反轉一半的數字
+- 空間複雜度：O(1)，因為只使用常數空間

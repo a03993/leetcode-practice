@@ -1,44 +1,35 @@
 ## Two Sum
 
-Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target...
 
 [LeetCode - Two Sum](https://leetcode.com/problems/two-sum/description/?envType=problem-list-v2&envId=array)
-
 
 ## Difficulty
 
 Easy
 
-## My Thinking
+## Note
 
-- 一開始想用雙迴圈，時間複雜度是 O(n²)
-- 嘗試計算 `target - nums[i]`，然後用迴圈去找後面有沒有這個差值
-- 但時間太慢，題目有提示 Hash Table，所以改試看看用 Map
+### 題目理解
 
+- 題目要我們在一個陣列中找到兩個數字，使得它們的和等於 target
+- 題目保證只有一個答案，而且不會有重複的數字
 
-## Final Solution
+### 解法思路
 
-使用 HashMap 儲存過去的數字和索引，邊走邊查找 `target - current` 是否已出現過。
+1. 初始想法：
 
-- 時間複雜度 Time Complexity：O(n)
-- 空間複雜度 Space Complexity：O(n)
+   - 用一個雙迴圈，一直到 i 和 j 項的合等於 target
+   - 但這樣時間複雜度是 O(n²)，不符合題目要求
+   
+2. 優化想法：
 
-## Notes & Learnings
+   - 用一個 Map 來儲存數字和它的索引
+   - 遍歷陣列，宣告 complement 變數，計算 target 扣除當前項目的值
+   - 如果 complement 在 Map 中存在，就返回它的索引和當前的索引
+   - 如果 complement 在 Map 中不存在，就把它和它的索引加入 Map
 
-- 雜湊表（Map）可以用 O(1) 的時間找到 key
-- map 中記錄的是「前一個數」，順序不能弄反
+### 時間與空間複雜度
 
-## My Attempts
-
-```js
-// 初始版本：暴力解
-function twoSum(nums, target) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
-    }
-  }
-}
-```
+- 時間複雜度：O(n)，因為只遍歷一次陣列
+- 空間複雜度：O(n)，因為需要用一個 Map 來儲存數字和它的索引

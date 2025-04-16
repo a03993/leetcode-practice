@@ -1,8 +1,6 @@
 # 88. Merge Sorted Array
 
-Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
-
-The number of elements initialized in nums1 and nums2 are m and n respectively. You may assume that nums1 has a size equal to m + n such that it has enough space to hold additional elements from nums2.
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively...
 
 [LeetCode - Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/?envType=problem-list-v2&envId=array)
 
@@ -10,17 +8,26 @@ The number of elements initialized in nums1 and nums2 are m and n respectively. 
 
 Easy
 
-## My Thinking
+## Note
 
-- 一開始想用雙迴圈，時間複雜度是 O(n²)
+### 題目理解
 
-## Final Solution
+- 題目要我們把兩個已經排序好的陣列合併成一個，並且合併後的陣列也是排序好的
+- 題目保證 nums1 有足夠的空間可以容納 nums2 的元素
 
-題目提示 Two Pointers，使用雙指針，從後面開始比較，時間複雜度是 O(m+n)
+### 解法思路
 
-- 時間複雜度 Time Complexity：O(m+n)
-- 空間複雜度 Space Complexity：O(1)
+1. 初始想法：
 
-## Notes & Learnings
+   - 用雙迴圈，把 nums2 的元素插入到 nums1 中
+   - 插入後，再對 nums1 進行排序
+   - 但這樣時間複雜度是 O(n²)，不符合題目要求
 
-- 從陣列最後面開始比較，可以避免覆蓋 nums1 的值
+2. 優化想法：
+
+   - 使用雙指針，從後面開始比較
+
+### 時間與空間複雜度
+
+- 時間複雜度：O(m+n)，因為只遍歷一次 nums1 和 nums2
+- 空間複雜度：O(1)，因為只使用常數空間
