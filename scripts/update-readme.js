@@ -19,6 +19,10 @@ const categories = fs.readdirSync(ROOT).filter((dir) => {
 const summaryRows = [];
 let totalProblems = 0;
 
+let countEasy = 0;
+let countMedium = 0;
+let countHard = 0;
+
 categories.forEach((category) => {
   const categoryPath = path.join(ROOT, category);
 
@@ -36,6 +40,11 @@ categories.forEach((category) => {
   console.log(`\n📂 Processing category: ${category}`);
 
   const rows = [];
+
+  // 計算每個難度的題目數量
+  let categoryCountEasy = 0;
+  let categoryCountMedium = 0;
+  let categoryCountHard = 0;
 
   // 將題目資料夾按照題目 ID 排序
   problems
@@ -81,6 +90,10 @@ categories.forEach((category) => {
       // 取得題目難度
       const difficulty = getDifficulty(readmePath, folder);
 
+      if (difficulty === "Easy") categoryCountEasy++;
+      else if (difficulty === "Medium") categoryCountMedium++;
+      else if (difficulty === "Hard") categoryCountHard++;
+
       rows.push(`| ${id} | ${title} | ${difficulty} | ${code} | ${note} |`);
       totalProblems++;
     });
@@ -97,11 +110,23 @@ ${rows.join("\n")}
 
   // 更新最外層的 README
   summaryRows.push(`- [${capitalize(category)}](./${category}/README.md)`);
+
+  countEasy += categoryCountEasy;
+  countMedium += categoryCountMedium;
+  countHard += categoryCountHard;
 });
+
+const difficultyBadge = `
+![Easy](https://img.shields.io/badge/Easy-${countEasy}-44cc11)
+![Medium](https://img.shields.io/badge/Medium-${countMedium}-ffa500)
+![Hard](https://img.shields.io/badge/Hard-${countHard}-d73a4a)
+`;
 
 const mainReadme = `# LeetCode Practice
 
 This is my LeetCode solution notes organized by "category" for quick reference and review.
+
+${difficultyBadge}
 
 ## 📂 Category
 
