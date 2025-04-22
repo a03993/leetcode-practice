@@ -17,6 +17,7 @@ const categories = fs.readdirSync(ROOT).filter((dir) => {
 });
 
 const summaryRows = [];
+const allProblems = [];
 let totalProblems = 0;
 
 let countEasy = 0;
@@ -96,6 +97,13 @@ categories.forEach((category) => {
 
       rows.push(`| ${id} | ${title} | ${difficulty} | ${code} | ${note} |`);
       totalProblems++;
+      allProblems.push({
+        id,
+        title,
+        difficulty,
+        codePath: `${category}/${folder}/solution.js`,
+        notePath: `${category}/${folder}/README.md`,
+      });
     });
 
   const categoryReadme = `# ${capitalize(category)} Problems
@@ -116,6 +124,14 @@ ${rows.join("\n")}
   countHard += categoryCountHard;
 });
 
+// 將所有題目依照 ID 排序
+allProblems.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+
+// 生成所有題目的表格
+const globalTableRows = allProblems.map((p) => {
+  return `| ${p.id} | ${p.title} | ${p.difficulty} | [Code](${p.codePath}) | [Note](${p.notePath}) |`;
+});
+
 const difficultyBadge = `
 ![Easy](https://img.shields.io/badge/Easy-${countEasy}-44cc11)
 ![Medium](https://img.shields.io/badge/Medium-${countMedium}-ffa500)
@@ -128,9 +144,15 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 
 ${difficultyBadge}
 
-## 📂 Category
+## Category
 
 ${summaryRows.join("\n")}
+
+## All Problems
+
+| ID | Title | Difficulty | Code | Note |
+|----|-------|------------|------|------|
+${globalTableRows.join("\n")}
 `;
 
 // 寫入最外層的 README
