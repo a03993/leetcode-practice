@@ -4,7 +4,7 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 
 
 ![Easy](https://img.shields.io/badge/Easy-6-44cc11)
-![Medium](https://img.shields.io/badge/Medium-1-ffa500)
+![Medium](https://img.shields.io/badge/Medium-2-ffa500)
 ![Hard](https://img.shields.io/badge/Hard-0-d73a4a)
 
 
@@ -26,3 +26,4 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 | 0080 | Removeduplicates From Sorted Array II | Medium | [Code](TwoPointers/0080-removeduplicates-from-sorted-array-II/solution.js) | [Note](TwoPointers/0080-removeduplicates-from-sorted-array-II/README.md) |
 | 0088 | Merge Sorted Array | Easy | [Code](TwoPointers/0088-merge-sorted-array/solution.js) | [Note](TwoPointers/0088-merge-sorted-array/README.md) |
 | 0169 | Majority Element | Easy | [Code](Counting/0169-majority-element/solution.js) | [Note](Counting/0169-majority-element/README.md) |
+| 0189 | Rotate Array | Medium | [Code](TwoPointers/0189-rotate-array/solution.js) | [Note](TwoPointers/0189-rotate-array/README.md) |
