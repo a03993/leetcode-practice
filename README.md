@@ -11,7 +11,6 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 ## Category
 
 - [Array](./Array/README.md)
-- [Counting](./Counting/README.md)
 - [Greedy](./Greedy/README.md)
 - [HashTable](./HashTable/README.md)
 - [Math](./Math/README.md)
@@ -29,5 +28,5 @@ This is my LeetCode solution notes organized by "category" for quick reference a
 | 0088 | Merge Sorted Array | Easy | [Code](TwoPointers/0088-merge-sorted-array/solution.js) | [Note](TwoPointers/0088-merge-sorted-array/README.md) |
 | 0121 | Best Time To Buy And Sell Stock | Easy | [Code](Array/0121-best-time-to-buy-and-sell-stock/solution.js) | [Note](Array/0121-best-time-to-buy-and-sell-stock/README.md) |
 | 0122 | Best Time To Buy And Sell Stock Ll | Medium | [Code](Greedy/0122-best-time-to-buy-and-sell-stock-ll/solution.js) | [Note](Greedy/0122-best-time-to-buy-and-sell-stock-ll/README.md) |
-| 0169 | Majority Element | Easy | [Code](Counting/0169-majority-element/solution.js) | [Note](Counting/0169-majority-element/README.md) |
+| 0169 | Majority Element | Easy | [Code](Greedy/0169-majority-element/solution.js) | [Note](Greedy/0169-majority-element/README.md) |
 | 0189 | Rotate Array | Medium | [Code](TwoPointers/0189-rotate-array/solution.js) | [Note](TwoPointers/0189-rotate-array/README.md) |
